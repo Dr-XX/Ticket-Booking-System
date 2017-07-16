@@ -1,0 +1,16 @@
+{% extends "windos_base.html" %}
+{% block info %}
+          <li><a href="sign_in">登录</a></li>
+          <li><a href="sign_up">注册</a></li>
+{% endblock %}
+
+{% block body %}
+<!--主页面-->
+    <div class="jumbotron" style='margin-top:-20px;height:760px; background-image:url(/assets/img/backgrounds/bg.jpg); background-size:cover; '>
+    <div style="margin-top: 150px;">
+        <h1 align="center">Jordan's Ticket 购票系统</h1>
+        <p align="center">欢迎使用Jordan's Ticket 购票系统购买火车票</p>
+        <p align="center" style="font-size: medium;color: darkred;">您尚未登录，请先登录</p>
+    </div>
+    </div>
+{% endblock %}

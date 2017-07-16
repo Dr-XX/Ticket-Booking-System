@@ -1,0 +1,25 @@
+{% extends "windos_base.html" %}
+{% block info %}
+    <li><a>你好 {{ username }}</a></li>
+    <li><a href="main_page">注销</a></li>
+{% endblock %}
+
+{% block body %}
+    <div class="jumbotron"
+         style='margin-top:-20px;height:760px; background-image:url(/assets/img/backgrounds/bg.jpg); background-size:cover; '>
+        <div style="margin-top: 150px;">
+            <h1 align="center">Jordan's Ticket 购票系统</h1>
+            <p align="center">欢迎使用Jordan's Ticket 购票系统购买火车票</p>
+            <form role="form" action="search_line" method="post">
+                <div align="center">
+                    <button type="submit" class="btn btn-primary btn-lg" style="background-color: #122b40">
+                        进入购票</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block real_body %}
+{% endblock %}

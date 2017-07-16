@@ -1,0 +1,84 @@
+{% extends "my_first.html" %}
+
+{% block body %}
+    <style>
+	body {
+		background-image: url(/assets/img/backgrounds/cc.jpg);
+	}
+</style>
+    <script type="text/javascript" src="../assets/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="../assets/js/add.js"></script>
+    <script type="text/javascript" src="../assets/js/jquery-3.2.1.min.js"></script>
+    <div class="col-md-1" ></div>
+    <div class="col-md-10" style="text-align:center;">
+        <form role="form" class="login-form" method="post" id="person" action="order">
+            <input type="hidden"  name="line_id" value = "{{ entity.line_id }}" >
+            <input type="hidden"  name="id1" value = "{{ id1 }}" >
+            <input type="hidden"  name="id2" value = "{{ id2 }}" >
+            <div class="top-content">
+                <div class="container">
+                    <div class="panel panel-default" style="width:500px; margin: 0 auto;margin-bottom: 20px;margin-top: 20px;">
+                        <div class="page-header">
+                            <h3><strong style="margin: 30px; ">车次信息</strong></h3>
+                        </div>
+                        <div class="panel-body panel-success">
+                            车次：{{ line_name }}
+                        </div>
+                        <div class="panel-body panel-success">
+                            出发地：{{ name1 }} &nbsp &nbsp&nbsp目的地：{{ name2 }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn" style="background-color: #122b40; " type="submit">
+                <strong style="color: white">提交订单</strong>
+            </button>
+            <div class="top-content" style="margin: 0 auto; ">
+                <div class="container">
+                    <div class="panel panel-default" style="width:500px; margin: 0 auto;margin-bottom: 20px;margin-top: 20px;">
+                        <div class="form-bottom">
+                            <h4 style="margin: 30px">第1位乘客信息</h4>
+                            <div class="form-group">
+                                <input type="text" name="personName" placeholder="姓名"
+                                       class="form-username form-control" id="form-username" required=required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" name="personID" placeholder="身份证号"
+                                       class="form-username form-control" id="form-username" required="required">
+                            </div>
+                            <div class="row">
+                                <div class="col-xs-4">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="isStu" value="1">
+                                        是否为学生
+                                    </label>
+                                </div>
+                                </div>
+                                <div class="col-xs-4">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="isLevel1" value="1">
+                                        是否一等座
+                                    </label>
+                                </div>
+                                </div>
+                                <div  class="col-xs-4">
+                                    <button class="btn btn-default" href="#" style="background-color: #CDCDCD;" onclick="AddPerson()">
+                                        添加乘客
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-1 "></div>
+    <script type="text/javascript">
+        var List = {{ tmp }};
+    alert(tmp);
+    </script>
+{% endblock %}

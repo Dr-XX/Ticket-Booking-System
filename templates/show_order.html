@@ -1,0 +1,68 @@
+{% extends "windos_base.html" %}
+{% block info %}
+    <li><a>你好 {{ username }}</a></li>
+    <li><a href="main_page">注销</a></li>
+{% endblock %}
+
+{% block body %}
+    <div class="jumbotron" style='margin-top:-20px;height:760px; background-image:url(/assets/img/backgrounds/dd.jpg); background-size:cover; padding-top: 0px;'>
+    <div style="padding: 0px 100px 10px;">
+        <div class="container">
+            <div class="panel panel-default" style=" margin: 0 auto;margin-bottom: 10px;margin-top: 20px;">
+                <div class="row">
+                    <div class="col-lg-10">
+                        <h3><strong >&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp车次:{{ line_name }}&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        出发地：{{ name1 }} &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        目的地：{{ name2 }}</strong></h3>
+                    </div>
+                    <div class="col-lg-2"><h3>
+                        <a class="btn" style="background-color: #122b40; " href = 'ticket_out' >
+                            <strong style="color: white">确认购买</strong>
+                        </a></h3>
+                    </div>
+                </div>
+                <div class="panel-body panel-success">
+                    剩余一等座：15
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    剩余二等座: 42
+                </div>
+            </div>
+        </div>
+        <table class="table table-bordered table-striped" >
+            <caption></caption>
+            <thead>
+                <tr>
+                    <th>乘客姓名</th>
+                    <th>身份证号</th>
+                    <th>是否学生票</th>
+                    <th>是否一等座</th>
+                    <th>车厢号</th>
+                    <th>价格</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% if lenth %}
+            {% for entity in tot_info %}
+                <tr>
+                    <td>{{ entity.name }}</td>
+                    <td>{{ entity.ID }}</td>
+                    <td>{% if  entity.isStu  %}
+                        是
+                    {% else %}
+                        否
+                    {% endif %}</td>
+                    <td>{% if entity.isLevel1 %}
+                        是
+                        {% else %}
+                        否
+                    {% endif %}</td>
+                    <td>{{ entity.car }}</td>
+                    <td>{{ entity.price }}</td>
+                </tr>
+            {% endfor %}
+            {% endif %}
+            </tbody>
+        </table>
+    </div>
+    </div>
+{% endblock %}

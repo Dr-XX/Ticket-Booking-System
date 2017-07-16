@@ -1,0 +1,5 @@
+/.idea/ merge=ours
+.Ds_Store merge=ours
+assets/bootstrap/node_modules/
+*.pyc
+*.doc diff=word

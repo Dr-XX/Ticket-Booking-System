@@ -1,0 +1,4 @@
+/.idea/
+.Ds_Store
+assets/bootstrap/node_modules/
+*.pyc

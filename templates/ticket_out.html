@@ -1,0 +1,53 @@
+{% extends "windos_base.html" %}
+
+{% block info %}
+    <li><a>你好 {{ username }} </a></li>
+    <li><a href="main_page">注销</a></li>
+{% endblock %}
+{% block body %}
+    <style>
+	body {
+		background-image: url(/assets/img/backgrounds/bb.jpg);
+	}
+</style>
+    <link rel="stylesheet" href="../assets/css/ticket.css">
+    <!--<div class="list-group" id="ticketlist"  >-->
+        {% for ticket in tot_info%}
+            <div class="cardWrap">
+                <div class="card cardLeft">
+                    <h1>King's<span>Ticket</span></h1>
+                    <div class="title">
+                        <h2>G106</h2>
+                        <span>{{ ticket.name }}</span>
+                    </div>
+                    <div class="name">
+                        <h2>{% if ticket.isStu %} 一等座{% else %} 二等座 {% endif %}
+                            {{ ticket.car }}车 {{ ticket.seat }}座</h2>
+                        <span>{{ name1 }}-->{{ name2 }}</span>
+                    </div>
+                    <div class="seat">
+                        <h2></h2>
+                    </div>
+                    <div class="time">
+                    </div>
+                </div>
+                <div class="card cardRight">
+                    <div class="eye"></div>
+                    <div class="number">
+                        <h3>¥{{ ticket.price }}</h3>
+                    </div>
+                    <div class="seat">
+                        {% if ticket.isStu %}
+                            <span>学生票</span>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    <!--</div-->
+
+        <a  class="btn" style="background-color: #122b40; align-items: center" href="main_page.html"><strong
+                style="color: #dddddd">完成</strong></a>
+
+{% endblock %}
+

@@ -1,0 +1,79 @@
+{% extends "windos_base.html" %}
+{% block info %}
+    <li><a>你好 {{ username }}</a></li>
+    <li><a href="main_page">注销</a></li>
+{% endblock %}
+
+{% block body %}
+    <div class="jumbotron" style='margin-top:-20px;height:760px; background-image:url(/assets/img/backgrounds/bg.jpg); background-size:cover; '>
+    <div style="padding: 30px 100px 10px;">
+        <form action="find" method="post" role="form">
+            <div class="row">
+                <div class="col-xs-5">
+                    <div class="input-group">
+			            <span class="input-group-addon">出发地</span>
+			            <input type="text" name="departure" class="form-control" placeholder="上海...">
+		            </div>
+                </div>
+                <div class="col-xs-5">
+                    <div class="input-group">
+			            <span class="input-group-addon">目的地</span>
+			            <input type="text" name="destination" class="form-control" placeholder="北京...">
+		            </div>
+                </div>
+                 <div class="col-xs-2">
+                <button type="submit" class="btn btn-info btn-block" >
+                        查询</button>
+                 </div>
+            </div>
+        </form>
+        <div style="color:#ff0000">{{ msg }}</div>
+
+        <table class="table table-bordered table-striped" id = "siteTable">
+            <caption></caption>
+            <thead>
+                <tr>
+                    <th>车次</th>
+                    <th>出发站</th>
+                    <th>到达站</th>
+                    <th>出发时间</th>
+                    <th>到达时间</th>
+                    <th>历时</th>
+                    <th>一等座价格</th>
+                    <th>二等座价格</th>
+                    <th>备注</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% if lenth %}
+            {% for entity in table %}
+                <tr>
+                    <td>{{ entity.line_name }}</td>
+                    <td>{{ name1 }}</td>
+                    <td>{{ name2 }}</td>
+                    <td>{{ entity.ETD }}</td>
+                    <td>{{ entity.ETA }}</td>
+                    <td>{{ entity.span }}</td>
+                    <td>{{ highprice }}</td>
+                    <td>{{ price }}</td>
+                    <td>
+                        <form action="buy_ticket" method="post" role="form">
+                            <input type="hidden"  name="line_id" value = "{{ entity.line_id }}" >
+                            <input type="hidden"  name="id1" value = "{{ id1 }}" >
+                            <input type="hidden"  name="id2" value = "{{ id2 }}" >
+                            <button type="submit" class="btn btn-default" style="background-color: #DCDCDC">
+                                购买
+                            </button>
+                        </form>
+
+                    </td>
+                </tr>
+            {% endfor %}
+            {% endif %}
+            </tbody>
+
+        </table>
+        <div onload="createTable()"></div>
+    </div>
+    </div>
+{% endblock %}

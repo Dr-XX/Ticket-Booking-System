@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block things %}
+    <!---->
+        <div class="top-content">
+            <div class="inner-bg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-7 col-sm-offset-3 text">
+                            <h1><strong>Jordan's Ticket 购票系统</strong>{% block title %}{% endblock %}</h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-7 col-sm-offset-3 form-box">
+                        	<div class="form-top">
+                        		<div class="form-top-right">
+                        		</div>
+                            </div>
+                            {% block content %}{% endblock %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}

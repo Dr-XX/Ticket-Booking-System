@@ -1,0 +1,31 @@
+{% extends 'sign_base.html' %}
+{% block info %}
+          <li ><a href="sign_in">登录</a></li>
+          <li class="active"><a href="sign_up">注册</a></li>
+{% endblock %}
+{% block title %}注册{% endblock %}
+{% block content %}
+    <div class="form-bottom">
+        <form role="form" action="affirm" method="post" class="login-form">
+            <div class="form-group">
+                <lable class="sr-only" for="inputEmail">Email</lable>
+                <input type="text" name="inputEmail"  placeholder="邮箱..." class="form-username form-control" id="form-username">
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="inputName">Username</label>
+                <input type="text" name="inputName" placeholder="用户名..." class="form-username form-control" id="form-username">
+            </div>
+
+            <div class="form-group">
+                <label class="sr-only" for="inputPassword">Password</label>
+                <input type="password" name="inputPassword" placeholder="密码..." class="form-password form-control" id="form-password">
+            </div>
+            <div class="form-group">
+                <label class="sr-only" for="confirmPassword">Confirm</label>
+                <input type="password" name="confirmPassword" placeholder="确认密码..." class="form-password form-control" id="form-password">
+            </div>
+            <div style="color:#F00">{{ msg }}</div>
+            <button type="submit" class="btn" style="background-color: #122b40" formmethod="post">确认注册</button>
+        </form>
+    </div>
+{% endblock %}
